@@ -1,5 +1,5 @@
 <template>
-  <div>asd</div>
+  <div class="bg-red-400">asd</div>
 </template>
 <script>
 export default {};
