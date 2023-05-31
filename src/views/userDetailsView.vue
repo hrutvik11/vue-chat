@@ -30,7 +30,6 @@
 <script>
 import { db } from "../firebase";
 import { ref, query, onValue } from "@firebase/database";
-import { isUserLoggedIn } from "../utils/helpers";
 export default {
   data() {
     return { userdata: null };
@@ -51,13 +50,6 @@ export default {
         },
         { onlyOnce: true }
       );
-    }
-  },
-  beforeRouteEnter(to, from, next) {
-    if (isUserLoggedIn()) {
-      next();
-    } else {
-      next({ name: "login" });
     }
   },
 };

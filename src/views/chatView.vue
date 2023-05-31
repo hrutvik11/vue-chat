@@ -53,7 +53,7 @@
   </div>
 </template>
 <script>
-import { getUserID, isUserLoggedIn } from "../utils/helpers";
+import { getUserID } from "../utils/helpers";
 import { db } from "../firebase";
 import { ref, query, onValue, child } from "@firebase/database";
 
@@ -104,18 +104,9 @@ export default {
           })
         );
 
-        console.log(tempUserData);
-
         this.followingArray = tempUserData;
       }
     });
-  },
-  beforeRouteEnter(to, from, next) {
-    if (isUserLoggedIn()) {
-      next();
-    } else {
-      next({ name: "login" });
-    }
   },
 };
 </script>

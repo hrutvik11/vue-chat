@@ -19,7 +19,7 @@
 </template>
 <script>
 import { db } from "../firebase";
-import { isUserLoggedIn, getUserID } from "../utils/helpers";
+import { getUserID } from "../utils/helpers";
 import { ref, push, query, onValue } from "@firebase/database";
 import userCardComp from "../components/userCardComp.vue";
 import addUserComp from "../components/addUserComp.vue";
@@ -33,13 +33,7 @@ export default {
     };
   },
   components: { userCardComp, addUserComp },
-  beforeRouteEnter(to, from, next) {
-    if (isUserLoggedIn()) {
-      next();
-    } else {
-      next({ name: "login" });
-    }
-  },
+
   methods: {
     adddata() {
       const chatref = ref(db, "chatApp/users");

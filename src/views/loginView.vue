@@ -23,7 +23,7 @@
   </div>
 </template>
 <script>
-import { isUserLoggedIn, setUserLoggedIn } from "../utils/helpers";
+import { setUserLoggedIn } from "../utils/helpers";
 import { db } from "../firebase";
 import { ref, query, orderByChild, equalTo, onValue } from "@firebase/database";
 
@@ -67,13 +67,6 @@ export default {
         );
       }
     },
-  },
-  beforeRouteEnter(to, from, next) {
-    if (isUserLoggedIn()) {
-      next({ name: "home" });
-    } else {
-      next();
-    }
   },
 };
 </script>
